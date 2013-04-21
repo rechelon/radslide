@@ -7,7 +7,7 @@ function radslide_ajax_slides_populate() {
 	?>
 	<input type="hidden" id="radslide_slideshow_id" value="<?php echo($slideshow_row->id); ?>" />
 	<h2>Managing Slideshow: <?php echo($slideshow_row->name); ?></h2>
-	<input type="button" id="radslide_back_to_slideshows" class="button-primary" value="Back to Slideshows" style="margin-bottom:10px;" />
+	<input type="button" id="radslide_back_to_slideshows" class="button-secondary" value="Back to Slideshows" style="margin-bottom:10px;" />
 	<?php radslide_helper_ajax_loader("radslide_back_to_slideshows_loading"); ?>
 
   <table>
@@ -37,8 +37,8 @@ function radslide_ajax_slides_populate() {
         <td><input type="text" class="radslide_field" id="radslide_update-link_url-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->link_url)); ?>" /></td>
         <td><input type="text" style="width:3em;" class="radslide_field" id="radslide_update-sort-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->sort)); ?>" /></td>
         <td style="text-align:center">
-					<input type="button" class="button-primary radslide_image_picker" id="radslide_image_picker-<?php echo($row->id); ?>" value="Choose Image" />
-          <input type="submit" class="button-primary" value="Delete" id="radslide_delete-<?php echo($row->id); ?>" />
+					<input type="button" class="button-secondary radslide_image_picker" id="radslide_image_picker-<?php echo($row->id); ?>" value="Choose Image" />
+          <input type="submit" class="button-secondary" value="Delete" id="radslide_delete-<?php echo($row->id); ?>" />
         </td>
         <td><?php radslide_helper_ajax_loader("radslide_loading-".$row->id); ?></td>
       </tr>
@@ -57,13 +57,13 @@ function radslide_ajax_slides_populate() {
       <td><input type="text" id="radslide_add-link_url" value="http://" /></td>
       <td><input type="text" style="width:3em;" id="radslide_add-sort" value="0" /></td>
       <td style="text-align:center;">
-				<input type="button" class="button-primary radslide_image_picker" id="radslide_image_picker-add" value="Choose Image" />
-        <input type="button" class="button-primary" value="Add Slide" id="radslide_add" />
+				<input type="button" class="button-secondary radslide_image_picker" id="radslide_image_picker-add" value="Choose Image" />
+        <input type="button" class="button-secondary" value="Add Slide" id="radslide_add" />
       </td>
 			<td><?php radslide_helper_ajax_loader("radslide_loading"); ?></td>
     </tr>
 	</table>
-  <p><input type="button" class="button-primary" value="Save Changes" id="radslide_update" /></p>
+  <p><input type="button" class="button-secondary" value="Save Changes" id="radslide_update" /></p>
 	<script type="text/javascript">radslide_setup_image_pickers();</script>
   <?php
   exit();

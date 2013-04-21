@@ -54,7 +54,7 @@ function radslide_slideshows_settings(id) {
 			jQuery('.CodeMirror-wrapping iframe').css('background-color', '#FFFFFF');
 
 			// intercept button clicks
-			jQuery(".button-primary").click(function(){
+			jQuery(".button-secondary").click(function(){
 				var id = jQuery(this).attr('id');
 
 				// back to slideshow button
@@ -136,7 +136,7 @@ function radslide_slideshows_populate() {
 			radslide_add_toggle_setup();
 
 			// intercept button clicks
-			jQuery(".button-primary").click(function(){
+			jQuery(".button-secondary").click(function(){
 				var id = jQuery(this).attr('id');
 
 				// add slideshow button

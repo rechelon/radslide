@@ -94,7 +94,7 @@ function radslide_slides_populate(id) {
 			});
  
 			// intercept button clicks
-			jQuery(".button-primary").click(function(){
+			jQuery(".button-secondary").click(function(){
 				var id = jQuery(this).attr('id');
 
 				// back to slideshow button

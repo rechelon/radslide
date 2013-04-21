@@ -1,0 +1,52 @@
+.slideshow-box {
+    background: #484b52 url(../images/bg.png) repeat-y top left;
+    padding: 20px 20px 20px 50px;
+    color: #C7CACF;
+    width: 85%;
+    box-shadow: 0 0 3px #808080 inset, 0 0 1px #FFFFFF;
+    margin: 15px 0px;
+}
+
+.slideshow-box div {
+    float: left;
+}
+.slideshow-box .title {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: lighter;
+    font-style: italic;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.slideshow-box .preview {
+    overflow: hidden;
+    width: 100%;
+    max-height: 100px;
+}
+
+.slideshow-box .preview .crop {
+    width: 100px; 
+    height: 100px; 
+    overflow: hidden;
+}
+
+.slideshow-box .preview img {
+    width: 200px; 
+    height: 150px; 
+    margin: -75px 0 0 -100px;
+}
+
+.slideshow-box .controls {
+    width: 40%;
+    margin-top: 22px;
+}
+
+.slideshow-box .codes {
+    margin-right: 10px;
+}
+
+.clear {
+    clear: both;
+    float: none !important;
+}

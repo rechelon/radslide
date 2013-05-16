@@ -92,7 +92,14 @@ function radslide_slides_populate(id) {
 				if(id != 'radslide_add' && id != 'radslide_update')
 					jQuery(this).val('');
 			});
- 
+                        jQuery(".button-primary").click(function(){
+				var id = jQuery(this).attr('id');
+                  		// update all rows
+			        if(id == 'radslide_update') {
+					jQuery("#radslide_loading").show();
+					radslide_slides_update();
+				}
+                        });
 			// intercept button clicks
 			jQuery(".button-secondary").click(function(){
 				var id = jQuery(this).attr('id');
@@ -106,11 +113,6 @@ function radslide_slides_populate(id) {
 				else if(id == 'radslide_add') {
 					jQuery("#radslide_loading").show();
 					radslide_slides_add();
-				}
-				// update all rows
-				else if(id == 'radslide_update') {
-					jQuery("#radslide_loading").show();
-					radslide_slides_update();
 				}
 				// delete a row
 				else {

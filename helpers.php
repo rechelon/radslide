@@ -18,13 +18,15 @@ function radslide_helper_db_slide() {
 // add jquery to head, if needed
 function radslide_head() {
 	global $wpdb;
-	?><script type="text/javascript">jQuery(function(){<?php
-	$table_name = radslide_helper_db_slideshow();
-	$slideshow_rows = $wpdb->get_results("SELECT * FROM $table_name");
-	foreach($slideshow_rows as $slideshow_row) {
-		?>jQuery("#radslide-<?php echo($slideshow_row->id) ?>").cycle(<?php echo(stripslashes($slideshow_row->cycle_options)); ?>); <?php
-	}
-	?>});</script>	<?php
+        ?><script type="text/javascript">jQuery(window).load(function() { 
+                  jQuery(function(){<?php
+	          $table_name = radslide_helper_db_slideshow();
+	          $slideshow_rows = $wpdb->get_results("SELECT * FROM $table_name");
+	          foreach($slideshow_rows as $slideshow_row) { ?>
+                    jQuery("#radslide-<?php echo($slideshow_row->id) ?>").cycle(<?php echo(stripslashes($slideshow_row->cycle_options)); ?>); <?php
+	          }
+              ?>})
+        });</script>	<?php
 }
 
 // media api scripts and styles

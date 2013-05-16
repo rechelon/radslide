@@ -4,56 +4,61 @@
 function radslide_ajax_slideshows_populate() {
     global $wpdb;
 
-    $default_template = '<a href="[[LINK_URL]]"><img src="[[IMAGE_URL]]" alt="[[TITLE]]" /></a>
-        <h3><a href="[[LINK_URL]]">[[TITLE]]</a></h3>
-        <div class="blurb">[[DESCRIPTION]]</div>';
-    $default_cycle_options = '{ timeout:2000, speed:500 }';
-
-?>
-        <h2>Slideshows</h2>
-<?php
     $table_name = radslide_helper_db_slideshow();
     $slide_table_name = radslide_helper_db_slide();
     $rows = $wpdb->get_results("SELECT id,name FROM $table_name ORDER BY name,id");
-    foreach($rows as $row) {
-        $name = $row->name;
-        if($name == '') {
-            $name = '[Slideshow #' . $row->id . ']';
-        }
-        $slides = $wpdb->get_results("SELECT id,image_url FROM $slide_table_name WHERE slideshow_id = $row->id ORDER BY sort,id");
-        $slide_div = '';
-        foreach ($slides as $slide) {
-            $slide_div .= '<div class="crop"><img src="' . $slide->image_url . '"></div>';
-        }
-        if($slide_div == '') {
-            $slide_div = '<em>This slideshow does not contain any slides.</em>';
-        }
-        echo '<div class="slideshow-box slideshow-' . $row->id . '">
-            ' . radslide_helper_ajax_loader("radslide_loading-".$row->id) . '
-            <div class="title">' . $name . '</div>
-            <div class="preview">' . $slide_div . '</div>
-            <div class="controls">
+
+        echo '<h2><span style="font-family: sans-serif; color: #335177;">rad</span><span style="color: #fb6e27; letter-spacing: 1px; font-family: sans-serif;font-weight: bold;">SLIDE</span> // Slideshows</h2>
+        <input type="button" id="radslide_add_showform" class="button-secondary add-slideshow" value="Add New Slideshow">
+        <div class="clear"></div>';
+
+        foreach($rows as $row) {
+            $name = $row->name;
+            if($name == '') {
+                $name = '[Slideshow #' . $row->id . ']';
+            }
+            $slides = $wpdb->get_results("SELECT id,image_url FROM $slide_table_name WHERE slideshow_id = $row->id ORDER BY sort,id");
+            $slide_div = '';
+            foreach ($slides as $slide) {
+                $slide_div .= '<div class="crop"><img src="' . $slide->image_url . '"></div>';
+            }
+            if($slide_div == '') {
+                $slide_div = '<em>This slideshow does not contain any slides.</em>';
+            }
+            echo '<div class="slideshow-box slideshow-' . $row->id . '">
+                <div class="title">' . $name . '</div>
+                <div class="preview">' . $slide_div . '</div>
+                ' . radslide_helper_ajax_loader("radslide_loading-" . $row->id) . '
+                <div class="controls">
                 <input type="button" class="button-secondary" id="radslide_manage-' . $row->id . '" value="Manage" />
                 <input type="button" class="button-secondary" id="radslide_settings-' . $row->id . '" value="Settings" />
                 <input type="button" class="button-secondary" id="radslide_delete-' . $row->id . '" value="Delete" />
-            </div>
-            <div class="codes">
-                <label for="page-embed">Page embed:</label><br>
-                <input name="page-embed" type="text" value="[[radslide ' . $row->id . ']]">
-            </div>
-            <div class="codes">
-                <label for="theme-embed">Theme embed:</label><br>
-                <input name="theme-embed" type="text" value="&lt;?php radslide(' . $row->id . '); ?&gt;">
-            </div>
-            <div class="clear"></div>
-        </div>';
-    }
-?>
+                </div>
+                <div class="codes">
+                    <label for="page-embed">Page embed:</label><br>
+                    <input name="page-embed" type="text" value="[[radslide ' . $row->id . ']]">
+                </div>
+                <div class="codes">
+                    <label for="theme-embed">Theme embed:</label><br>
+                    <input name="theme-embed" type="text" value="&lt;?php radslide(' . $row->id . '); ?&gt;">
+                </div>
+                <div class="clear"></div>
+            </div>';
+        }
+    exit();
+}
 
-        <hr/>
-
-        <h2 id="radslide_add_toggle">New Slideshow <input type="button" class="button-secondary" value="+" style="vertical-align:middle" /></h2>
-        <div id="radslide_add_form" style="visibility:hidden">
+//Add Slideshow Page
+function radslide_ajax_slideshows_add_form() {
+        global $wpdb;
+        
+        $default_template = '<a href="[[LINK_URL]]"><img src="[[IMAGE_URL]]" alt="[[TITLE]]" /></a>
+            <h3><a href="[[LINK_URL]]">[[TITLE]]</a></h3>
+            <div class="blurb">[[DESCRIPTION]]</div>';
+        $default_cycle_options = '{ timeout:2000, speed:500 }';
+    ?>
+    
+        <div id="radslide_add_form">
                 <table>
                         <tr>
                                 <td>Name</td>
@@ -61,7 +66,7 @@ function radslide_ajax_slideshows_populate() {
                         </tr>
                         <tr>
                                 <td style="width:120px;">Template<br/><span style="font-size:.8em; font-style:italic;">Note: Use [[TITLE]], [[DESCRIPTION]], [[LINK_URL]], [[IMAGE_URL]], [[SLIDE_ID]]</span></th>
-                                <td><textarea style="width:650px;height:150px;" id="radslide_add-template"><?php echo($default_template); ?></textarea></td>
+                                <td><textarea style="width:500px;height:150px;" id="radslide_add-template"><?php echo($default_template); ?></textarea></td>
                         </tr>
                         <tr>
                                 <td><a href="http://jquery.malsup.com/cycle/options.html" target="_blank">jQuery Cycle Options</a></td>
@@ -74,7 +79,7 @@ function radslide_ajax_slideshows_populate() {
                 </p>
         </div>
 <?php
-    exit();
+        exit();
 }
 
 // add a new slideshow
@@ -142,6 +147,7 @@ function radslide_ajax_slideshows_delete() {
 
 // add ajax actions
 add_action('wp_ajax_radslide_slideshows_populate', 'radslide_ajax_slideshows_populate');
+add_action('wp_ajax_radslide_slideshows_add_form', 'radslide_ajax_slideshows_add_form');
 add_action('wp_ajax_radslide_slideshows_add', 'radslide_ajax_slideshows_add');
 add_action('wp_ajax_radslide_slideshows_settings', 'radslide_ajax_slideshows_settings');
 add_action('wp_ajax_radslide_slideshows_settings_edit', 'radslide_ajax_slideshows_settings_edit');

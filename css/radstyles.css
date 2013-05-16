@@ -1,8 +1,23 @@
+#radslide {
+    font-size: 14px;
+    font-weight: lighter;
+    margin-right: 15px;
+}
+
+#radslide h2 {
+    float: left;
+}
+
+.add-slideshow {
+    float: right;
+    margin: 13px 0 !important;
+}
+
 .slideshow-box {
     background: #484b52 url(../images/bg.png) repeat-y top left;
     padding: 20px 20px 20px 50px;
     color: #C7CACF;
-    width: 85%;
+    width: auto;
     box-shadow: 0 0 3px #808080 inset, 0 0 1px #FFFFFF;
     margin: 15px 0px;
 }
@@ -13,10 +28,9 @@
 .slideshow-box .title {
     font-size: 32px;
     line-height: 32px;
-    font-weight: lighter;
     font-style: italic;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .slideshow-box .preview {
@@ -39,14 +53,18 @@
 
 .slideshow-box .controls {
     width: 40%;
-    margin-top: 22px;
+    margin-top: 19px;
 }
 
 .slideshow-box .codes {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .clear {
     clear: both;
     float: none !important;
+}
+
+.credit {
+    position: absolute;
 }

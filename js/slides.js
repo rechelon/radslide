@@ -1,6 +1,6 @@
 // add a slide to a slideshow
 function radslide_slides_add() {
-	jQuery.ajax({
+        jQuery.ajax({
 		url: siteurl+"/wp-admin/admin-ajax.php",
 		data: {
 			action: 'radslide_slides_add',

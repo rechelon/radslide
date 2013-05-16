@@ -9,6 +9,10 @@ add_action('wp_ajax_radslide_slideshows_settings_edit', 'radslide_ajax_slideshow
 add_action('wp_ajax_radslide_slideshows_delete', 'radslide_ajax_slideshows_delete');
 
 
+function radslide_make_title($title){
+  return "<h2>radSLIDE // $title</h2>";
+}
+
 // list of slideshows
 function radslide_ajax_slideshows_populate() {
     global $wpdb;
@@ -17,7 +21,7 @@ function radslide_ajax_slideshows_populate() {
     $slide_table_name = radslide_helper_db_slide();
     $rows = $wpdb->get_results("SELECT id,name FROM $table_name ORDER BY name,id");
 
-        echo '<h2>radSLIDE // Slideshows</h2>
+        echo radslide_make_title('Slideshows') . '
         <input type="button" id="radslide_add_showform" class="button-primary button-secondary add-slideshow" value="Add New Slideshow">
         <div class="clear"></div>';
 
@@ -65,8 +69,9 @@ function radslide_ajax_slideshows_add_form() {
             <h3><a href="[[LINK_URL]]">[[TITLE]]</a></h3>
             <div class="blurb">[[DESCRIPTION]]</div>';
         $default_cycle_options = '{ timeout:2000, speed:500 }';
+        echo radslide_make_title('New Slideshow');
     ?>
-    
+        
         <div id="radslide_add_form">
                 <table>
                         <tr>
@@ -109,7 +114,7 @@ function radslide_ajax_slideshows_settings() {
     $slideshow_row = $wpdb->get_row("SELECT * FROM ".radslide_helper_db_slideshow()." WHERE id=".(int)($_POST['radslide_slideshow_id']));
 ?>
         <input type="hidden" id="radslide_slideshow_id" value="<?php echo($slideshow_row->id); ?>" />
-        <h2>Slideshow Settings: <?php echo($slideshow_row->name); ?></h2>
+        <?php echo radslide_make_title('Settings for ' . $slideshow_row->name);?>
         <input type="button" id="radslide_back_to_slideshows" class="button-secondary" value="Back to Slideshows" style="margin-bottom:10px;" />
         <?php radslide_helper_ajax_loader("radslide_back_to_slideshows_loading"); ?>
         <table>

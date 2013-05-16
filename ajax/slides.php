@@ -12,7 +12,7 @@ function radslide_ajax_slides_populate() {
 	$slideshow_row = $wpdb->get_row("SELECT * FROM ".radslide_helper_db_slideshow()." WHERE id=".(int)($_POST['radslide_slideshow_id']));
 	?>
 	<input type="hidden" id="radslide_slideshow_id" value="<?php echo($slideshow_row->id); ?>" />
-	<h2>Managing Slideshow: <?php echo($slideshow_row->name); ?></h2>
+	<?php echo radslide_make_title('Managing ' . $slideshow_row->name); ?>
 	<input type="button" id="radslide_back_to_slideshows" class="button-secondary" value="Back to Slideshows" style="margin-bottom:10px;" />
 	<?php radslide_helper_ajax_loader("radslide_back_to_slideshows_loading"); ?>
 

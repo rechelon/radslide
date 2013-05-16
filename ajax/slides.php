@@ -1,5 +1,11 @@
 <?php
 
+// add ajax actions
+add_action('wp_ajax_radslide_slides_populate', 'radslide_ajax_slides_populate');
+add_action('wp_ajax_radslide_slides_add', 'radslide_ajax_slides_add');
+add_action('wp_ajax_radslide_slides_update', 'radslide_ajax_slides_update');
+add_action('wp_ajax_radslide_slides_delete', 'radslide_ajax_slides_delete');
+
 // list of slides
 function radslide_ajax_slides_populate() {
 	global $wpdb;
@@ -98,10 +104,5 @@ function radslide_ajax_slides_delete() {
   $wpdb->query("DELETE FROM ".radslide_helper_db_slide()." WHERE id='".(int)($_POST['radslide_id'])."'");
 }
 
-// add ajax actions
-add_action('wp_ajax_radslide_slides_populate', 'radslide_ajax_slides_populate');
-add_action('wp_ajax_radslide_slides_add', 'radslide_ajax_slides_add');
-add_action('wp_ajax_radslide_slides_update', 'radslide_ajax_slides_update');
-add_action('wp_ajax_radslide_slides_delete', 'radslide_ajax_slides_delete');
 
 ?>

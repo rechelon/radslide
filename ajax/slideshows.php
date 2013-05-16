@@ -1,5 +1,14 @@
 <?php
 
+// add ajax actions
+add_action('wp_ajax_radslide_slideshows_populate', 'radslide_ajax_slideshows_populate');
+add_action('wp_ajax_radslide_slideshows_add_form', 'radslide_ajax_slideshows_add_form');
+add_action('wp_ajax_radslide_slideshows_add', 'radslide_ajax_slideshows_add');
+add_action('wp_ajax_radslide_slideshows_settings', 'radslide_ajax_slideshows_settings');
+add_action('wp_ajax_radslide_slideshows_settings_edit', 'radslide_ajax_slideshows_settings_edit');
+add_action('wp_ajax_radslide_slideshows_delete', 'radslide_ajax_slideshows_delete');
+
+
 // list of slideshows
 function radslide_ajax_slideshows_populate() {
     global $wpdb;
@@ -9,7 +18,7 @@ function radslide_ajax_slideshows_populate() {
     $rows = $wpdb->get_results("SELECT id,name FROM $table_name ORDER BY name,id");
 
         echo '<h2>radSLIDE // Slideshows</h2>
-        <input type="button" id="radslide_add_showform" class="button-secondary add-slideshow" value="Add New Slideshow">
+        <input type="button" id="radslide_add_showform" class="button-primary button-secondary add-slideshow" value="Add New Slideshow">
         <div class="clear"></div>';
 
         foreach($rows as $row) {
@@ -144,13 +153,5 @@ function radslide_ajax_slideshows_delete() {
     $wpdb->query("DELETE FROM ".radslide_helper_db_slide()." WHERE slideshow_id='".(int)($_POST['radslide_slideshow_id'])."'");
     exit();
 }
-
-// add ajax actions
-add_action('wp_ajax_radslide_slideshows_populate', 'radslide_ajax_slideshows_populate');
-add_action('wp_ajax_radslide_slideshows_add_form', 'radslide_ajax_slideshows_add_form');
-add_action('wp_ajax_radslide_slideshows_add', 'radslide_ajax_slideshows_add');
-add_action('wp_ajax_radslide_slideshows_settings', 'radslide_ajax_slideshows_settings');
-add_action('wp_ajax_radslide_slideshows_settings_edit', 'radslide_ajax_slideshows_settings_edit');
-add_action('wp_ajax_radslide_slideshows_delete', 'radslide_ajax_slideshows_delete');
 
 ?>

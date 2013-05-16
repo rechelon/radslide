@@ -36,7 +36,7 @@ function radslide_ajax_slides_populate() {
 				<td><?php echo($row->id); ?></td>
 				<td style="text-align:center">
 					<input type="hidden" class="radslide_field" id="radslide_update-image_url-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->image_url)); ?>" />
-					<?php if(!empty($row->image_url)) { ?><img src="<?php echo(stripslashes($row->image_url)); ?>" height="50" id="radslide_update-image-<?php echo($row->id); ?>" /><?php } ?>
+					<img src="<?php echo(stripslashes($row->image_url)); ?>" height="50" id="radslide_update-image-<?php echo($row->id); ?>" />
 				</td>
         <td><input type="text" class="radslide_field" id="radslide_update-title-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->title)); ?>" /></td>
         <td><input type="text" class="radslide_field" id="radslide_update-description-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->description)); ?>" /></td>
@@ -52,7 +52,7 @@ function radslide_ajax_slides_populate() {
     }
     ?>
     <tr><td colspan="8" style="text-align: right;">
-<p><input type="button" class="button-primary" value="Save Changes" id="radslide_update" /></p>
+<p><?php radslide_helper_ajax_loader("radslide_loading"); ?> <input type="button" class="button-primary" value="Save Changes" id="radslide_update" /></p>
 <div style="background-color:#999999;height:1px;margin:30x 0 8px 0;"></div></td></tr>
 <table id="add-new-slide"><tr><td colspan="8"><h2>Add New Slide</h2></td></tr> 
 		<tr id="radslide_add_row">
@@ -69,7 +69,7 @@ function radslide_ajax_slides_populate() {
 				<input type="button" class="button-secondary radslide_image_picker" id="radslide_image_picker-add" value="Choose Image" />
         <input type="button" class="button-secondary" value="Add Slide" id="radslide_add" />
       </td>
-			<td><?php radslide_helper_ajax_loader("radslide_loading"); ?></td>
+			<td><?php radslide_helper_ajax_loader("radslide_add"); ?> </td>
     </tr>
 	</table>
   	<script type="text/javascript">radslide_setup_image_pickers();</script>

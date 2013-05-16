@@ -56,7 +56,7 @@ function radslide_slideshows_settings(id) {
 					jQuery('#radslide-template').html(editor.getCode());
 					jQuery('#radslide_loading').show();
 					radslide_slideshows_settings_edit();
-				}
+				} 
 			});
 		},
 		error: radslide_ajax_error
@@ -97,7 +97,8 @@ function radslide_slideshows_add_form() {
 
 				// add slideshow button
 				if(id == 'radslide_add') {
-                                
+  				radslide_slideshows_add();       
+  				jQuery("#radslide_loading").show();
         }
       });
 		},
@@ -153,22 +154,26 @@ function radslide_slideshows_populate() {
 			jQuery('#radslide').html(data);
 
 			// intercept button clicks
+			
 			jQuery(".button-secondary").click(function(){
 				var id = jQuery(this).attr('id');
 
 				// add slideshow button
 				// either manage, settings, or delete
-                                var parts = id.split('-');
-                                id = parts[0];
-                                var row_id = parts[1];
-                                jQuery("#radslide_loading-"+row_id).show();
+        var parts = id.split('-');
+        id = parts[0];
+        var row_id = parts[1];
+        jQuery("#radslide_loading-"+row_id).show();
 
-                                if(id == 'radslide_manage') { radslide_slides_populate(row_id); }
-                                else if(id == 'radslide_settings') { radslide_slideshows_settings(row_id); }
-                                else if(id == 'radslide_delete') { radslide_slideshows_delete(row_id); }
-                                //add slideshow form button
-				else if(id == 'radslide_add_showform') { radslide_slideshows_add_form(); }
-                        });
+        if(id == 'radslide_manage') { radslide_slides_populate(row_id); }
+        else if(id == 'radslide_settings') { radslide_slideshows_settings(row_id); }
+        else if(id == 'radslide_delete') { radslide_slideshows_delete(row_id); }
+        //add slideshow form button
+				else if(id == 'radslide_add_showform') {
+				  radslide_slideshows_add_form();
+				} 
+				
+      });
 		},
 		error: radslide_ajax_error
 	});

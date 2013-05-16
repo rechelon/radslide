@@ -8,7 +8,7 @@ function radslide_ajax_slideshows_populate() {
     $slide_table_name = radslide_helper_db_slide();
     $rows = $wpdb->get_results("SELECT id,name FROM $table_name ORDER BY name,id");
 
-        echo '<h2><span style="font-family: sans-serif; color: #335177;">rad</span><span style="color: #fb6e27; letter-spacing: 1px; font-family: sans-serif;font-weight: bold;">SLIDE</span> // Slideshows</h2>
+        echo '<h2>radSLIDE // Slideshows</h2>
         <input type="button" id="radslide_add_showform" class="button-secondary add-slideshow" value="Add New Slideshow">
         <div class="clear"></div>';
 

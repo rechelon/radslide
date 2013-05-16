@@ -71,7 +71,7 @@ function radslide_slideshows_add_form() {
 		data: {
 			action: 'radslide_slideshows_add_form',
 			cookie: encodeURIComponent(document.cookie),
-			radslide_slideshow_id: id
+			radslide_slideshow_id: jQuery(this).attr('id')
 		},
 		type: "POST",
 		success: function(data) {
@@ -98,8 +98,8 @@ function radslide_slideshows_add_form() {
 				// add slideshow button
 				if(id == 'radslide_add') {
                                 
-                                }
-                        });
+        }
+      });
 		},
 		error: radslide_ajax_error
 	});

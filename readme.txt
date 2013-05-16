@@ -5,6 +5,7 @@ Tags: slideshow, jquery cycle
 Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 1.1
+License: GPLv2 
 
 A javascript slideshow plugin that supports multiple slideshows and uses jQuery Cycle.
 

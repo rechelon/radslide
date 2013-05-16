@@ -39,7 +39,7 @@ function radslide_media_api_styles() {
 }
 
 function radslide_rd_credit() {
-	echo '<div class="credit">&copy; radSLIDE was originally developed by <a href="http://github.com/micahflee/" target="_blank">Micah Lee</a> and is maintained by <a href="http://radicaldesigns.org/" target="_blank" style="text-decoration: none;"><span style="font-size: 12px; font-family: sans-serif;color:#335177;">radical</span><span style="color: #fb6e27; letter-spacing: 1px;font-size:10px;  font-family: sans-serif;font-weight: bold;">DESIGNS</span></a>. It has been happily released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GLP2 License</a>.</div>';
+	echo '<div class="credit">&copy; radSLIDE was originally developed by <a href="http://github.com/micahflee/" target="_blank">Micah Lee</a> and is maintained by <a href="http://radicaldesigns.org/" target="_blank" style="text-decoration: none;"><span style="font-size: 12px; font-family: sans-serif;color:#000000;">radical</span><span style="color: #fb6e27; letter-spacing: 1px;font-size:10px;  font-family: sans-serif;font-weight: bold;">DESIGNS</span></a>. It has been happily released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GLP2 License</a>.</div>';
 }
 
 ?>

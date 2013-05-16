@@ -51,7 +51,10 @@ function radslide_ajax_slides_populate() {
       <?php
     }
     ?>
-    <tr><td colspan="8"><div style="background-color:#999999;height:1px;margin:8px 0;"></div></td></tr>
+    <tr><td colspan="8" style="text-align: right;">
+<p><input type="button" class="button-primary" value="Save Changes" id="radslide_update" /></p>
+<div style="background-color:#999999;height:1px;margin:30x 0 8px 0;"></div></td></tr>
+<table id="add-new-slide"><tr><td colspan="8"><h2>Add New Slide</h2></td></tr> 
 		<tr id="radslide_add_row">
 			<td></td>
  			<td style="text-align:center">
@@ -69,8 +72,7 @@ function radslide_ajax_slides_populate() {
 			<td><?php radslide_helper_ajax_loader("radslide_loading"); ?></td>
     </tr>
 	</table>
-  <p><input type="button" class="button-secondary" value="Save Changes" id="radslide_update" /></p>
-	<script type="text/javascript">radslide_setup_image_pickers();</script>
+  	<script type="text/javascript">radslide_setup_image_pickers();</script>
   <?php
   exit();
 }

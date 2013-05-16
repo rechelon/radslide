@@ -67,3 +67,6 @@
 input#radslide_add_showform {
 float: left;
 }
+#add-new-slide {
+margin-bottom: 20px;
+}

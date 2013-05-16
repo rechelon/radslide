@@ -53,3 +53,8 @@ Use CSS to style and customize
 * In the beginning...
 
 
+== TODO ==
+
+* Fix admin image displays to use thumbnails
+* Consider Cycle 2 to support responsive
+

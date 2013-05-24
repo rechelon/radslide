@@ -39,7 +39,7 @@ Use CSS to style and customize
 
 == Changelog ==
 
-= 1.1 =
+= 2.1 =
 * Created a slideshow overview with thumbnails
 * Upgraded jQuery Cycle to 3.0.2 (19-APR-2013)
 * UI changes and fixes

@@ -43,7 +43,7 @@ function radslide_ajax_slideshows_populate() {
                 <div class="preview">' . $slide_div . '</div>
                 ' . radslide_helper_ajax_loader("radslide_loading-" . $row->id) . '
                 <div class="controls">
-                <input type="button" class="button-secondary" id="radslide_manage-' . $row->id . '" value="Manage" />
+                <input type="button" class="button-secondary" id="radslide_manage-' . $row->id . '" value="Slides" />
                 <input type="button" class="button-secondary" id="radslide_settings-' . $row->id . '" value="Settings" />
                 <input type="button" class="button-secondary" id="radslide_delete-' . $row->id . '" value="Delete" />
                 </div>

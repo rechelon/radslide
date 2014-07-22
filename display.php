@@ -21,7 +21,10 @@ function radslide($id, $display=true) {
 			$slide = str_replace("[[LINK_URL]]", stripslashes($row->link_url), $slide);
 			$slide = str_replace("[[IMAGE_URL]]", stripslashes($row->image_url), $slide);
 			$slide = str_replace("[[SLIDE_ID]]", stripslashes($row->id), $slide);
-			$html .= '<div class="radslide">'.$slide.'</div>';
+			if ($row === reset($rows))
+				$html .= '<div class="1st-radslide">'.$slide.'</div>';
+			else
+				$html .= '<div class="radslide">'.$slide.'</div>';
 		}
 		$html .= '</div>';
 	}

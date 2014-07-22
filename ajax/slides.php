@@ -34,7 +34,7 @@ function radslide_ajax_slides_populate() {
 			<tr class="radslide_row" id="radslide_row-<?php echo($row->id); ?>">
 				<td style="text-align:center">
 					<input type="hidden" class="radslide_field" id="radslide_update-image_url-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->image_url)); ?>" />
-					<img src="<?php echo(stripslashes($row->image_url)); ?>" height="50" id="radslide_update-image-<?php echo($row->id); ?>" />
+					<img src="<?php echo(stripslashes($row->image_url)); ?>" height="80" id="radslide_update-image-<?php echo($row->id); ?>" />
 				</td>
         <td><input type="text" class="radslide_field" id="radslide_update-title-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->title)); ?>" /></td>
         <td><input type="text" class="radslide_field" id="radslide_update-description-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->description)); ?>" /></td>

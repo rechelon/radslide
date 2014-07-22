@@ -16,7 +16,7 @@ function radslide_ajax_slides_populate() {
 	<input type="button" id="radslide_back_to_slideshows" class="button-secondary" value="Back to Slideshows" style="margin-bottom:10px;" />
 	<?php radslide_helper_ajax_loader("radslide_back_to_slideshows_loading"); ?>
 
-  <table>
+  <table border=1 frame=void rules=rows >
     <tr>
       <th>Image</th>
       <th>Title</th>
@@ -29,19 +29,21 @@ function radslide_ajax_slides_populate() {
     <?php
     $table_name = radslide_helper_db_slide();
 	$rows = $wpdb->get_results("SELECT * FROM $table_name WHERE slideshow_id='".$slideshow_row->id."' ORDER BY sort,id");
+    
     foreach($rows as $row) {
       ?>
-			<tr class="radslide_row" id="radslide_row-<?php echo($row->id); ?>">
-				<td style="text-align:center">
-					<input type="hidden" class="radslide_field" id="radslide_update-image_url-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->image_url)); ?>" />
-					<img src="<?php echo(stripslashes($row->image_url)); ?>" height="80" id="radslide_update-image-<?php echo($row->id); ?>" />
-				</td>
+      <tr class="radslide_row" id="radslide_row-<?php echo($row->id); ?>">
+        <td style="text-align:center" height="130">
+            <input type="hidden" class="radslide_field" id="radslide_update-image_url-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->image_url)); ?>" />
+            <img src="<?php echo(stripslashes($row->image_url)); ?>" height="80" id="radslide_update-image-<?php echo($row->id); ?>" />
+            </br>
+            <input type="button" class="button-secondary radslide_image_picker" id="radslide_image_picker-<?php echo($row->id); ?>" value="Choose Image" />
+        </td>
         <td><input type="text" class="radslide_field" id="radslide_update-title-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->title)); ?>" /></td>
         <td><input type="text" class="radslide_field" id="radslide_update-description-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->description)); ?>" /></td>
         <td><input type="text" class="radslide_field" id="radslide_update-link_url-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->link_url)); ?>" /></td>
         <td><input type="text" style="width:3em;" class="radslide_field" id="radslide_update-sort-<?php echo($row->id); ?>" value="<?php echo(stripslashes($row->sort)); ?>" /></td>
         <td style="text-align:center">
-					<input type="button" class="button-secondary radslide_image_picker" id="radslide_image_picker-<?php echo($row->id); ?>" value="Choose Image" />
           <input type="submit" class="button-secondary" value="Delete" id="radslide_delete-<?php echo($row->id); ?>" />
         </td>
         <td><?php radslide_helper_ajax_loader("radslide_loading-".$row->id); ?></td>

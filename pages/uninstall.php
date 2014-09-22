@@ -4,7 +4,7 @@
 function radslide_page_uninstall() {
 	?>
 	<script type="text/javascript"> siteurl = '<?php echo(get_option('siteurl')); ?>'; </script>
-	<script src="<?php echo(get_option('siteurl')); ?>/wp-content/plugins/radslide/js/uninstall.js" type="text/javascript"></script>
+	<script src="<?php site_url(); ?>/wp-content/plugins/radslide/js/uninstall.js" type="text/javascript"></script>
 	<h2>Uninstall radSLIDE</h2>
 	<div id="radslide_uninstall_container">
 		<p>When you deactive radSLIDE, all of the information it stores (slideshows and their slides) stays in your website's database. This is so you can temporarly disable the plugin without losing all your data. If you want to get rid of all traces of radSLIDE for good, click the following button.</p>

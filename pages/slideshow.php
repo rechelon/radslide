@@ -12,9 +12,9 @@ function radslide_page_slideshow() {
 		// define the site url for javascript
 		siteurl = '<?php echo(get_option('siteurl')); ?>';
 	</script>
-	<script src="<?php echo(get_option('siteurl')); ?>/wp-content/plugins/radslide/js/slideshows.js" type="text/javascript"></script>
-	<script src="<?php echo(get_option('siteurl')); ?>/wp-content/plugins/radslide/js/slides.js" type="text/javascript"></script>
-	<script src="<?php echo(get_option('siteurl')); ?>/wp-content/plugins/radslide/js/image_picker.js" type="text/javascript"></script>
+	<script src="<?php site_url(); ?>/wp-content/plugins/radslide/js/slideshows.js" type="text/javascript"></script>
+	<script src="<?php site_url(); ?>/wp-content/plugins/radslide/js/slides.js" type="text/javascript"></script>
+	<script src="<?php site_url(); ?>/wp-content/plugins/radslide/js/image_picker.js" type="text/javascript"></script>
 	<script type="text/javascript">
     jQuery(function() {
       // populate the table of slideshows

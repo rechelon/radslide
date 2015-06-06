@@ -18,7 +18,7 @@ function radslide($id, $display=true) {
 			$slide = stripslashes($slideshow_row->template);
 			$slide = str_replace("[[TITLE]]", stripslashes($row->title), $slide);
 			$slide = str_replace("[[DESCRIPTION]]", stripslashes($row->description), $slide);
-			$slide = str_replace("[[LINK_URL]]", stripslashes($row->link_url), $slide);
+			$slide = str_replace("[[LINK_URL]]", substr(stripslashes($row->link_url),5), $slide);
 			$slide = str_replace("[[IMAGE_URL]]", stripslashes($row->image_url), $slide);
 			$slide = str_replace("[[SLIDE_ID]]", stripslashes($row->id), $slide);
 			if ($row === reset($rows))

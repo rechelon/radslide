@@ -40,7 +40,7 @@ function radslide($id, $display=true) {
 function radslide_insert_slideshow($content) {
 	// looking for [[radslide #]], where # is an id
 	$pattern = '/\[\[radslide\s*(\d+)\]\]/';
-	$callback = create_function('$matches', 'return radslide($matches[1],false);');
+        $callback = function($matches) {return radslide($matches[1],false);};
 	$content = preg_replace_callback($pattern, $callback, $content);
 	return $content;
 }
